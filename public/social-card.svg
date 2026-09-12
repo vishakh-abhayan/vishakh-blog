@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f4ed"/>
+  <circle cx="1040" cy="115" r="150" fill="none" stroke="#c96442" stroke-width="3"/>
+  <circle cx="1040" cy="115" r="78" fill="#c96442"/>
+  <text x="96" y="205" fill="#a94b30" font-family="monospace" font-size="22" letter-spacing="3">Vishakh Abhayan</text>
+  <text x="92" y="320" fill="#141413" font-family="Georgia,serif" font-size="72">Notes on AI, code,</text>
+  <text x="92" y="405" fill="#141413" font-family="Georgia,serif" font-size="72">and making.</text>
+  <line x1="96" y1="510" x2="1104" y2="510" stroke="#d9d6cb" stroke-width="2"/>
+</svg>

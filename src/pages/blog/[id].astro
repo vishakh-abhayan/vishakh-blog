@@ -1,0 +1,37 @@
+---
+import { render } from 'astro:content';
+import { getPublishedPosts, formatDate } from '../../lib/posts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+---
+
+<BaseLayout title={`${post.data.title} — Vishakh Abhayan`} description={post.data.description}>
+  <article class="article-shell">
+    <header class="article-header">
+      <a class="back-link" href={`${base}blog/`}>← Back to all writing</a>
+      <div class="post-meta article-meta">
+        <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
+        <span>{post.data.tags.join(' · ')}</span>
+      </div>
+      <h1>{post.data.title}</h1>
+      <p class="article-deck">{post.data.description}</p>
+    </header>
+    <div class="article-divider" aria-hidden="true"><span></span></div>
+    <div class="prose">
+      <Content />
+    </div>
+    <footer class="article-end">
+      <span aria-hidden="true">✦</span>
+      <p>Written by Vishakh Abhayan</p>
+      <a href={`${base}blog/`}>More notes →</a>
+    </footer>
+  </article>
+</BaseLayout>

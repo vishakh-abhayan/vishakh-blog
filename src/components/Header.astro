@@ -1,0 +1,23 @@
+---
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const path = Astro.url.pathname;
+const links = [
+  { href: `${base}blog/`, label: 'Writing', active: path.includes('/blog') },
+  { href: `${base}about/`, label: 'About', active: path.includes('/about') },
+];
+---
+
+<header class="site-header">
+  <div class="shell nav-wrap">
+    <a class="wordmark" href={base} aria-label="Vishakh Abhayan, home">
+      <span class="wordmark-mark" aria-hidden="true">VA</span>
+      <span>Vishakh Abhayan</span>
+    </a>
+    <nav aria-label="Main navigation">
+      {links.map((link) => (
+        <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>
+      ))}
+      <a class="nav-rss" href={`${base}rss.xml`}>RSS</a>
+    </nav>
+  </div>
+</header>
