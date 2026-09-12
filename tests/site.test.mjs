@@ -5,16 +5,18 @@ import test from 'node:test';
 const dist = new URL('../dist/', import.meta.url);
 const read = (path) => readFile(new URL(path, dist), 'utf8');
 
-test('home page presents Vishakh and links to writing', async () => {
+test('home page uses a narrow bio-first publication structure', async () => {
   const html = await read('index.html');
-  assert.match(html, /Vishakh Abhayan/);
-  assert.match(html, /Thoughts on building with AI/);
-  assert.match(html, /href="\/vishakh-blog\/blog\//);
+  assert.match(html, /<h1[^>]*>Vishakh Abhayan<\/h1>/);
+  assert.match(html, />Archive<\/a>/);
+  assert.match(html, /<h2>Essays<\/h2>/);
+  assert.match(html, /Building locally, thinking clearly/);
+  assert.doesNotMatch(html, /class="hero-note"/);
 });
 
-test('blog index lists published posts', async () => {
+test('archive lists published posts', async () => {
   const html = await read('blog/index.html');
-  assert.match(html, /All writing/);
+  assert.match(html, /<h1[^>]*>Archive<\/h1>/);
   assert.match(html, /Building locally, thinking clearly/);
 });
 

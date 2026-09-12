@@ -1,33 +1,31 @@
 ---
-import { getPublishedPosts, formatDate } from '../../lib/posts';
+import { getPublishedPosts } from '../../lib/posts';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = await getPublishedPosts();
+const groups = Map.groupBy(posts, (post) => post.data.publishedAt.getFullYear());
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 ---
 
-<BaseLayout title="Writing — Vishakh Abhayan" description="Essays and notes by Vishakh Abhayan on local AI, code, and creative tools.">
-  <section class="page-intro shell">
-    <p class="eyebrow">Notebook</p>
-    <h1>All writing</h1>
-    <p>Essays, field notes, and practical lessons from things I am building and learning.</p>
-  </section>
+<BaseLayout title="Archive — Vishakh Abhayan" description="All essays and short posts by Vishakh Abhayan.">
+  <article class="archive-page">
+    <div class="narrow">
+      <h1>Archive</h1>
+      <p class="archive-intro">All essays and short posts, newest first.</p>
 
-  <section class="shell archive" aria-label="Blog posts">
-    {posts.map((post) => (
-      <article class="archive-row">
-        <div class="archive-date">
-          <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
-        </div>
-        <div class="archive-copy">
-          <div class="tag-list">
-            {post.data.tags.map((tag) => <span>{tag}</span>)}
-          </div>
-          <h2><a href={`${base}blog/${post.id}/`}>{post.data.title}</a></h2>
-          <p>{post.data.description}</p>
-        </div>
-        <a class="round-link" href={`${base}blog/${post.id}/`} aria-label={`Read ${post.data.title}`}>→</a>
-      </article>
-    ))}
-  </section>
+      {[...groups.entries()].map(([year, yearPosts]) => (
+        <section class="archive-year">
+          <h2>{year}</h2>
+          <ul class="link-list archive-list">
+            {yearPosts.map((post) => (
+              <li>
+                <a href={`${base}blog/${post.id}/`}>{post.data.title}</a>
+                <span>({post.data.type === 'essay' ? 'Essay' : 'Short post'})</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </article>
 </BaseLayout>

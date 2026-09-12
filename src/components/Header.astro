@@ -1,23 +1,29 @@
 ---
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
-const path = Astro.url.pathname;
-const links = [
-  { href: `${base}blog/`, label: 'Writing', active: path.includes('/blog') },
-  { href: `${base}about/`, label: 'About', active: path.includes('/about') },
-];
 ---
 
 <header class="site-header">
-  <div class="shell nav-wrap">
-    <a class="wordmark" href={base} aria-label="Vishakh Abhayan, home">
-      <span class="wordmark-mark" aria-hidden="true">VA</span>
-      <span>Vishakh Abhayan</span>
+  <div class="narrow header-inner">
+    <a class="site-name" href={base} aria-label="Vishakh Abhayan, home">
+      <h1>Vishakh Abhayan</h1>
     </a>
-    <nav aria-label="Main navigation">
-      {links.map((link) => (
-        <a href={link.href} aria-current={link.active ? 'page' : undefined}>{link.label}</a>
-      ))}
-      <a class="nav-rss" href={`${base}rss.xml`}>RSS</a>
-    </nav>
+    <a class="archive-tag" href={`${base}blog/`}>Archive</a>
+    <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
+      <span></span>
+    </button>
   </div>
 </header>
+
+<script is:inline>
+  const toggle = document.querySelector('.theme-toggle');
+  const root = document.documentElement;
+  const stored = localStorage.getItem('theme');
+  if (stored === 'dark') root.dataset.theme = 'dark';
+  toggle?.setAttribute('aria-pressed', String(root.dataset.theme === 'dark'));
+  toggle?.addEventListener('click', () => {
+    const dark = root.dataset.theme !== 'dark';
+    root.dataset.theme = dark ? 'dark' : 'light';
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    toggle.setAttribute('aria-pressed', String(dark));
+  });
+</script>

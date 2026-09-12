@@ -18,6 +18,7 @@ Create a Markdown file in `src/content/blog/`:
 title: Your post title
 description: A one-sentence summary.
 publishedAt: 2026-09-12
+type: essay
 tags: [AI, notes]
 draft: false
 featured: false
@@ -37,7 +38,7 @@ The post is automatically added to the home page, writing archive, RSS feed, and
 
 ## Design
 
-The palette uses warm parchment, ivory, near-black, and terracotta. Headings use Georgia as a widely available substitute for Anthropic's proprietary serif; interface text uses Inter and code labels use JetBrains Mono.
+The palette uses warm parchment and near-black. The layout is a deliberately sparse, bio-first publication with a single narrow reading column. Newsreader provides the editorial typography.
 
 ## Deployment
 

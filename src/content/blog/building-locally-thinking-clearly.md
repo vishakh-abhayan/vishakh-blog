@@ -2,6 +2,7 @@
 title: Building locally, thinking clearly
 description: A practical philosophy for local-first creative work.
 publishedAt: 2026-09-12
+type: essay
 tags:
   - local AI
   - making

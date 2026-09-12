@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 }
 
 const {
-  title = 'Vishakh Abhayan — Notes on AI, code, and making',
+  title = 'Vishakh Abhayan',
   description = 'Writing by Vishakh Abhayan about local AI, coding, creative tools, and practical experiments.',
   image = '/vishakh-blog/social-card.svg',
 } = Astro.props;
@@ -31,21 +30,18 @@ const socialImage = Astro.site ? new URL(image, Astro.site) : new URL(image, Ast
     <link rel="alternate" type="application/rss+xml" title="Vishakh Abhayan" href={`${base}rss.xml`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
     <title>{title}</title>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <Header />
     <main id="main"><slot /></main>
-    <Footer />
   </body>
 </html>

@@ -1,83 +1,68 @@
 ---
-import { getPublishedPosts, formatDate } from '../lib/posts';
+import { getPublishedPosts } from '../lib/posts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const posts = await getPublishedPosts();
-const featured = posts.find((post) => post.data.featured) ?? posts[0];
-const morePosts = posts.filter((post) => post.id !== featured?.id).slice(0, 3);
+const essays = posts.filter((post) => post.data.type === 'essay');
+const shortPosts = posts.filter((post) => post.data.type === 'short');
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 ---
 
 <BaseLayout>
-  <section class="hero shell">
-    <div class="hero-copy">
-      <p class="eyebrow">Vishakh Abhayan · Personal blog</p>
-      <h1>Thoughts on building with AI, code, and curiosity.</h1>
-      <p class="hero-intro">
-        Practical notes from experiments with local models, creative tools, and the small systems that help ideas become real.
-      </p>
-      <div class="hero-actions">
-        <a class="button button-primary" href={`${base}blog/`}>Read the writing <span aria-hidden="true">→</span></a>
-        <a class="text-link" href={`${base}about/`}>A little about me</a>
-      </div>
-    </div>
-    <aside class="hero-note" aria-label="Topics covered">
-      <p class="mono-label">CURRENTLY EXPLORING</p>
-      <ul>
-        <li><span>01</span> Local-first AI workflows</li>
-        <li><span>02</span> Small tools with real utility</li>
-        <li><span>03</span> Creative coding experiments</li>
-      </ul>
-      <div class="orbit" aria-hidden="true"><i></i><b></b></div>
-    </aside>
-  </section>
-
-  {featured && (
-    <section class="featured-wrap">
-      <div class="shell featured-grid">
-        <div class="section-heading">
-          <p class="eyebrow">Featured note</p>
-          <p>A considered place to begin.</p>
+  <article class="home-page">
+    <div class="narrow">
+      <section class="bio">
+        <p>
+          Vishakh Abhayan is a builder exploring local AI, creative tools, and practical automation. He writes about making useful things with code and understanding the systems behind them<span class="more-punctuation">… </span><button class="more-button" type="button" aria-expanded="false" aria-controls="more-bio">More</button>
+        </p>
+        <div id="more-bio" class="more-bio" hidden>
+          <p>His current interests include private AI workflows, small 3D and web experiments, and ways people can collaborate with capable software without losing control of their work.</p>
+          <p>This site is a public notebook for essays, short observations, and lessons from building.</p>
         </div>
-        <article class="featured-post">
-          <div class="post-meta">
-            <time datetime={featured.data.publishedAt.toISOString()}>{formatDate(featured.data.publishedAt)}</time>
-            <span>{featured.data.tags[0]}</span>
-          </div>
-          <h2><a href={`${base}blog/${featured.id}/`}>{featured.data.title}</a></h2>
-          <p>{featured.data.description}</p>
-          <a class="read-link" href={`${base}blog/${featured.id}/`}>Read note <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-    </section>
-  )}
+      </section>
 
-  <section class="shell latest-section">
-    <div class="section-bar">
-      <div>
-        <p class="eyebrow">From the notebook</p>
-        <h2>Latest writing</h2>
-      </div>
-      <a class="text-link" href={`${base}blog/`}>View all</a>
+      {essays.length > 0 && (
+        <section class="link-section">
+          <h2>Essays</h2>
+          <ul class="link-list">
+            {essays.map((post) => (
+              <li><a href={`${base}blog/${post.id}/`}>{post.data.title}</a></li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {shortPosts.length > 0 && (
+        <section class="link-section">
+          <h2>Short posts</h2>
+          <ul class="link-list">
+            {shortPosts.map((post) => (
+              <li><a href={`${base}blog/${post.id}/`}>{post.data.title}</a></li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section class="link-section">
+        <h2>Elsewhere</h2>
+        <ul class="link-list annotated-list">
+          <li><a href="https://github.com/Vishakh-abhayan" rel="me">GitHub</a><span>(projects)</span></li>
+          <li><a href={`${base}rss.xml`}>RSS</a><span>(updates)</span></li>
+        </ul>
+      </section>
     </div>
-    {morePosts.length > 0 ? (
-      <div class="post-list">
-        {morePosts.map((post) => (
-          <article class="post-row">
-            <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
-            <div>
-              <h3><a href={`${base}blog/${post.id}/`}>{post.data.title}</a></h3>
-              <p>{post.data.description}</p>
-            </div>
-            <span aria-hidden="true">↗</span>
-          </article>
-        ))}
-      </div>
-    ) : (
-      <div class="quiet-note">
-        <p>More notes are taking shape.</p>
-        <span>New essays and experiments will appear here.</span>
-      </div>
-    )}
-  </section>
+  </article>
 </BaseLayout>
+
+<script is:inline>
+  const button = document.querySelector('.more-button');
+  const content = document.querySelector('.more-bio');
+  const punctuation = document.querySelector('.more-punctuation');
+  button?.addEventListener('click', () => {
+    const willOpen = content?.hasAttribute('hidden');
+    content?.toggleAttribute('hidden');
+    punctuation?.toggleAttribute('hidden');
+    button.textContent = willOpen ? 'Less' : 'More';
+    button.setAttribute('aria-expanded', String(willOpen));
+  });
+</script>
