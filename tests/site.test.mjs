@@ -29,6 +29,8 @@ test('content collection creates readable article routes', async () => {
   const current = await read('blog/can-you-hear-the-music/index.html');
   assert.match(current, /three hundred thousand years/);
   assert.match(current, /Can you hear the music/);
+  assert.match(current, /Reality gets the final vote/);
+  assert.match(current, /software they do not understand/);
 });
 
 test('RSS and sitemap are generated', async () => {

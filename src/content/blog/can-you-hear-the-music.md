@@ -1,66 +1,90 @@
 ---
 title: Can you hear the music?
-description: What our reaction to AI reveals about knowledge, creativity, and ego.
-publishedAt: 2026-09-12
+description: Stop asking whether AI thinks like us. Test what it helps us discover.
+publishedAt: 2026-09-12T12:00:00Z
 type: essay
 tags:
   - artificial intelligence
   - creativity
-  - knowledge
+  - scientific method
 featured: true
 ---
 
-Every day there is a new model, a new benchmark, or a new demo. One group of engineers says, "We are cooked." Another group, usually more conservative, insists that AI still cannot do real work.
+Every day there is a new model, benchmark, or demo. One group of engineers says, "We are cooked." Another group insists that AI still cannot do real work.
 
-I find both reactions too simple.
+Neither reaction tells me much. Panic is not analysis. Dismissal is not analysis either.
 
-My view starts with the timeline of intelligence itself. Our species is at least three hundred thousand years old.[1] That number sounds manageable because it fits inside one sentence. It is not manageable at all.
+Our species is at least three hundred thousand years old.[1] That fact matters, but not because human intelligence improved at a steady rate for all that time. It did not. Humans with roughly our biological equipment lived for a very long time before the recent explosion of science and technology.
 
-Try a smaller number. One crore is ten million. If you started counting now at one number every second, without stopping to eat, drink, or sleep, you would need almost 116 days to finish. Now try to feel the length of three lakh years. Every language, tool, story, failure, argument, and discovery we inherited sits somewhere inside that distance.
+The more interesting fact is acceleration. Knowledge became cumulative. Language let one mind teach another. Writing let the dead speak to the living. Printing increased the number of people who could take part. Computers made information searchable and executable. Each layer gave the next generation a larger place to begin.
 
-We did not arrive here quickly. Human intelligence accumulated.
+Three hundred thousand years is also too large to feel. Try a smaller number. One crore is ten million. Count one number every second without stopping to eat, drink, or sleep, and you would need almost 116 days. Now try to imagine three lakh years.
 
-## We keep confusing the container with the knowledge
+The timeline does not prove that AI is intelligent. It shows how easily we underestimate compounding.
 
-This is not the first time people have distrusted a new way of carrying knowledge.
+## AI is not the next book
 
-In India, knowledge moved through oral traditions, including the Vedas. It moved into *thaliyola*, our palm-leaf manuscripts. Palm leaves became one of the oldest and most widespread technologies for preserving written knowledge across South and Southeast Asia.[2] Then came printed books. Later came websites, video, podcasts, and online courses.
+Knowledge in India moved through oral traditions, including the Vedas, and through *thaliyola*, our palm-leaf manuscripts. Palm leaves became one of the oldest and most widespread technologies for preserving written knowledge across South and Southeast Asia.[2] Then came printed books, websites, videos, and searchable databases.
 
-At every transition, someone defended the older container as the place where "real" knowledge lived. The sacred thing kept moving: first memory, then manuscript, then paper. Now some people who learned programming from hours of YouTube and copied snippets from Stack Overflow say that using an LLM destroys creativity.
+People often defend the medium they grew up with. Once a form becomes familiar, it starts to feel like the home of "real" knowledge.
 
-I do not understand how the website was acceptable but the model is not. Both can be used without thinking. Both can also help a serious person learn faster.
+Still, an LLM is not simply the next book. A book stores words that a person chose to publish. A model generates a new output from learned representations. It can combine ideas in useful ways, and it can invent a historical fact with complete confidence. The difference is not cosmetic. It changes how much trust the tool deserves.
 
-## The assignment was never proof of thought
+That is why AI should not be treated as an authority. It should be treated as an instrument whose output must be checked.
 
-People worry that children use ChatGPT to complete assignments. That concern is fair. A student can submit fluent words without understanding any of them.
+## The developer criticism is partly right
 
-But how many school assignments were truly written from the mind before ChatGPT? Students copied from guides, classmates, Wikipedia, and whatever else was available. The shortcut is older than the tool.
+There is an easy joke to make about developers who learned from YouTube and copied code from Stack Overflow before complaining that AI kills creativity. I have made that joke. It misses the strongest criticism.
 
-The failure is not that a machine helped. The failure is that we designed assignments where producing an answer mattered more than understanding it. If a chatbot can complete the task without learning, perhaps the task was measuring compliance more than thought.
+Looking up how another programmer solved a specific problem is different from delegating an entire solution to a system whose process you do not understand. AI can help people produce software they do not understand. That creates fragile code, hidden security problems, and developers who cannot debug their own systems.
 
-## AI touches the ego
+This is real. It is also not an argument for refusing the tool.
 
-I suspect some resistance to AI is personal. People spent years learning a skill. Then a machine arrived and performed pieces of that skill in seconds. It can feel as if the machine has reduced the value of the years.
+A library lets me use work I could not reproduce from first principles. A compiler transforms code through stages most programmers never inspect. We manage those abstractions through tests, documentation, review, and clearly defined interfaces. AI needs even more of that discipline because its output is less predictable.
 
-So we make comforting declarations: AI cannot build a real product. It cannot write good code. It cannot be creative. Sometimes those statements are true. Models hallucinate, misunderstand context, and produce impressive-looking rubbish. But repeating their failures can become a way to avoid looking at their progress.
+If the generated code cannot survive a test, explain its assumptions, or be maintained by the team, it does not belong in the product. The speed of generation does not reduce the need for understanding. It increases it.
 
-Anyone who understands the basic idea of neural networks knows there is no magic inside them. That is exactly why they are so interesting. Simple mathematical operations, enough data, enough computation, and the right training process can produce behaviour that was easy to dismiss until we saw it.
+## Expertise does not settle the question
 
-Human imagination has limits too. We cannot picture a colour we have never seen. Most of what we call creativity comes from combining, bending, and reinterpreting things that reached us before. That does not make human creativity fake. It should make us less casual about declaring machine creativity impossible.
+My earlier instinct was to say that anyone who understands neural networks must understand how powerful they are. That is too convenient. People can understand transformers, gradient descent, scaling, and representation learning, yet disagree about what current systems can become.
 
-## Let evidence lead
+A serious skeptic might say that we are confusing impressive statistical capability with general intelligence. I cannot dismiss that by pointing to another demo. "It looks intelligent" is not a scientific answer.
 
-Science creates technology, and technology gives science new ways to see. Better instruments create better questions. Better computation makes previously impossible experiments ordinary.
+The opposite claim has the same problem. "It is only predicting the next token" describes part of the mechanism, but a mechanism's short description does not tell us everything the system can do. We have to test the behaviour.
 
-AI may become the strongest tool we have built for working through accumulated knowledge: holding context, finding patterns, proposing hypotheses, and helping us test ideas. It will also make mistakes. The answer is not worship and it is not denial. We should measure what works, expose what fails, and let evidence change our minds.
+The dispute will not be settled by who sounds more certain.
 
-We have hard problems ahead. Energy, disease, climate, education, and systems that grow more complicated faster than any one person can understand them. Refusing a useful tool because it unsettles our identity would be a strange choice.
+## Tools expand what we can represent
+
+Humans cannot imagine a colour they have never seen, but that does not mean we are trapped inside direct experience. Mathematicians reason about four-dimensional objects. Physicists build models of particles they cannot see. Geologists reconstruct processes that take longer than a human life.
+
+We do this by inventing representations: equations, diagrams, simulations, instruments, and language. A telescope does not see like an eye. A calculator does not calculate like a mathematician. Their value comes from extending what a person can observe and manipulate.
+
+AI may become another extension of that kind. The defensible claim is not that a model imagines exactly as we do. It is that models can expand the representational space in which we work. They can hold more context than one person, search combinations we would not reach quickly, and offer candidate explanations we can examine.
+
+Some candidates will be nonsense. That is where the method matters.
+
+## Reality gets the final vote
+
+Generating a hypothesis is not scientific discovery. Science requires predictions, experiments, measurements, attempts at falsification, and replication. A model can help with several of those steps. It cannot negotiate with reality on our behalf.
+
+This gives us a better question than "Does AI think like a human?"
+
+Does using AI help us make better predictions about the world?
+
+Can a scientist find a useful hypothesis faster? Can an engineer build a system that survives contact with users? Can a doctor identify a pattern that is then confirmed by evidence? Can a student explain the answer after the chatbot is closed?
+
+Those questions can be tested.
+
+I do not think we should blindly trust AI. I do not think every polished demo is evidence of a mind. I also do not think skepticism means repeating that a machine can never do something until the day it does.
+
+Build the system. Give it difficult problems. Measure what it can do. Find where it fails. Improve the experiment. Repeat.
 
 There is a line in *Oppenheimer*: "The important thing isn't can you read music, it's can you hear it?"[3]
 
-That is how I think about AI. Knowing the syntax is not the same as understanding. Producing an answer is not the same as thinking. The important question is not whether a human or a model touched the work.
+Knowing the notes is not the same as understanding the music. In the same way, producing fluent output is not proof of thought. But our intuition about what a machine should or should not be able to do is not proof either.
 
-Can you hear the music?
+Reality gets the final vote.
 
 ## Sources
 
