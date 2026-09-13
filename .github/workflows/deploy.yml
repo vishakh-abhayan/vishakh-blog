@@ -29,6 +29,9 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          BASE_PATH: /vishakh-blog
+          SITE_URL: https://vishakh-abhayan.github.io
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

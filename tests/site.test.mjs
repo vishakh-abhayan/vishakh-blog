@@ -10,6 +10,9 @@ test('home page uses a narrow bio-first publication structure', async () => {
   assert.match(html, /<h1[^>]*>Vishakh Abhayan<\/h1>/);
   assert.match(html, />Archive<\/a>/);
   assert.match(html, /<h2>Essays<\/h2>/);
+  assert.match(html, /href="\/blog\/can-you-hear-the-music\//);
+  assert.match(html, /href="\/_astro\/[^\"]+\.css"/);
+  assert.doesNotMatch(html, /\/vishakh-blog\//);
   assert.match(html, /Can you hear the music\?/);
   assert.match(html, /Building locally, thinking clearly/);
   assert.doesNotMatch(html, /class="hero-note"/);

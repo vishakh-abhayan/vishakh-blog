@@ -2,9 +2,13 @@
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
+const base = process.env.BASE_PATH || '/';
+const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+const site = process.env.SITE_URL || (vercelHost ? `https://${vercelHost}` : 'http://localhost:4321');
+
 export default defineConfig({
-  site: 'https://vishakh-abhayan.github.io',
-  base: '/vishakh-blog',
+  site,
+  base,
   integrations: [sitemap()],
   vite: {
     server: {
