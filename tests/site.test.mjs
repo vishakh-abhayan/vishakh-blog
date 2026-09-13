@@ -7,7 +7,7 @@ const read = (path) => readFile(new URL(path, dist), 'utf8');
 
 test('home page uses a narrow bio-first publication structure', async () => {
   const html = await read('index.html');
-  assert.match(html, /<h1[^>]*>Vishakh Abhayan<\/h1>/);
+  assert.match(html, /<h1[^>]*>What If We Stop Asking Whether AI Thinks\?<\/h1>/);
   assert.match(html, />Archive<\/a>/);
   assert.match(html, /<h2>Essays<\/h2>/);
   assert.match(html, /href="\/blog\/can-you-hear-the-music\//);
@@ -39,7 +39,7 @@ test('content collection creates readable article routes', async () => {
 test('RSS and sitemap are generated', async () => {
   const rss = await read('rss.xml');
   const sitemap = await read('sitemap-0.xml');
-  assert.match(rss, /Vishakh Abhayan/);
+  assert.match(rss, /What If We Stop Asking Whether AI Thinks\?/);
   assert.match(rss, /building-locally-thinking-clearly/);
   assert.match(sitemap, /blog\/building-locally-thinking-clearly/);
 });

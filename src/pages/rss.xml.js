@@ -4,7 +4,7 @@ import { getPublishedPosts } from '../lib/posts';
 export async function GET(context) {
   const posts = await getPublishedPosts();
   return rss({
-    title: 'Vishakh Abhayan',
+    title: 'What If We Stop Asking Whether AI Thinks?',
     description: 'Notes on local AI, code, creative tools, and practical experiments.',
     site: context.site,
     items: posts.map((post) => ({
